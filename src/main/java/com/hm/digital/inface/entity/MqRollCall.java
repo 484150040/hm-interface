@@ -11,19 +11,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.hm.digital.inface.dto.MqRollCallDto;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "api_statistical", schema = "api_statistical")
-//@SQLDelete(sql = "update api_statistical set deleted = 1 where id = ?")
-//@Where(clause = "deleted = 0")
+@Table(name = "mq_roll_call", schema = "mq_roll_call")
+@TypeDef(name = "json", typeClass = JsonStringType.class)
 @EntityListeners(AuditingEntityListener.class)
-public class Statistical  implements Serializable {
+public class MqRollCall implements Serializable {
 
   /**
    * 作业编号
@@ -32,31 +36,32 @@ public class Statistical  implements Serializable {
   @Column(name = "id")
   @GeneratedValue(generator = "system-uuid")
   @GenericGenerator(name = "system-uuid", strategy = "uuid")
-  private String ZYID;
+  private String id;
 
   /**
-   * 总数
+   * 监所编号
    */
-  @Column(name = "total")
-  private String total;
+  @Column(name = "prison_id")
+  private String prisonId;
 
   /**
-   * 时间
+   * 命令
    */
-  @Column(name = "date")
-  private String date;
+  @Column(name = "command")
+  private String order;
 
   /**
-   * 名称
+   * 内容
    */
-  @Column(name = "name")
-  private String NAME;
+  @Type(type = "json")
+  @Column(name = "param",columnDefinition = "json")
+  private MqRollCallDto param;
 
   /**
-   * 请求参数
+   * 点名次数
    */
-  @Column(name = "required_parameter")
-  private String requiredParameter;
+  @Column(name = "count")
+  private String count;
 
   /**
    * 创建时间
@@ -73,20 +78,9 @@ public class Statistical  implements Serializable {
   private Date modifyTime;
 
   /**
-   * 监所编号
+   * 结束时间
    */
-  @Column(name = "prison_id")
-  private String prisonId;
+  @Column(name = "end_time")
+  private Date endTime;
 
-  /**
-   * 每季度年份
-   */
-  @Column(name = "year")
-  private String year;
-
-  /**
-   * 是否删除
-   */
-  @Column(name = "deleted")
-  private Integer deleted;
 }

@@ -1,5 +1,6 @@
 package com.hm.digital.inface.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import lombok.Data;
 @Entity
 @Table(name = "api_prisoner_record", schema = "api_prisoner_record")
 @EntityListeners(AuditingEntityListener.class)
-public class PrisonerRecord {
+public class PrisonerRecord  implements Serializable {
 
   @Id
   @Column(name = "id")

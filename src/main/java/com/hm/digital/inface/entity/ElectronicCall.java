@@ -1,5 +1,6 @@
 package com.hm.digital.inface.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import lombok.Data;
 @Entity
 @Table(name = "api_electronic_call", schema = "api_electronic_call")
 @EntityListeners(AuditingEntityListener.class)
-public class ElectronicCall {
+public class ElectronicCall  implements Serializable {
 
   /**
    * 作业编号
