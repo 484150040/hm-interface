@@ -15,6 +15,14 @@ public interface ConfigsService {
   List<Config> getValue(String type,String prisonId);
 
   /**
+   * 根据配置信息查询
+   *
+   * @param config
+   * @return
+   */
+  List<Config> getValue(Config config);
+
+  /**
    * 根据主键
    *
    * @param id
@@ -28,5 +36,7 @@ public interface ConfigsService {
    * @param config
    * @return
    */
-  Config updete(Config config);
+  Config save(Config config);
+
+
 }

@@ -52,4 +52,16 @@ public class Config  implements Serializable {
   @Column(name = "value")
   private String value;
 
+  /**
+   * 设备
+   */
+  @Column(name = "equipment")
+  private String equipment;
+
+  /**
+   * 前端、后端标识
+   */
+  @Column(name = "universe")
+  private String universe;
+
 }
