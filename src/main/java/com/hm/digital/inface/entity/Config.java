@@ -64,4 +64,10 @@ public class Config  implements Serializable {
   @Column(name = "universe")
   private String universe;
 
+  /**
+   * 处理状态
+   */
+  @Column(name = "status")
+  private Integer status;
+
 }
