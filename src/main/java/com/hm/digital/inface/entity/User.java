@@ -21,9 +21,9 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "equipment", schema = "equipment")
+@Table(name = "user", schema = "user")
 @EntityListeners(AuditingEntityListener.class)
-public class Equipment implements Serializable {
+public class User implements Serializable {
   /**
    * 作业编号
    */
@@ -34,40 +34,46 @@ public class Equipment implements Serializable {
   private String id;
 
   /**
-   * 备注
-   */
-  @Column(name = "content")
-  private String content;
-
-  /**
-   * 设备品牌
-   */
-  @Column(name = "brand")
-  private String brand;
-
-  /**
-   * 设备名称
+   * 用户名称
    */
   @Column(name = "name")
   private String name;
 
   /**
-   * 是否有效
+   * 用户名
    */
-  @Column(name = "isvalid")
-  private Integer isvalid;
+  @Column(name = "username")
+  private String username;
 
   /**
-   * 设备code
+   * 密码
    */
-  @Column(name = "code")
-  private String code;
+  @Column(name = "password")
+  private String password;
 
   /**
-   * 父级设备id
+   * 用户邮箱
    */
-  @Column(name = "parent_id")
-  private String parentId;
+  @Column(name = "email")
+  private String email;
+
+  /**
+   * 用户手机
+   */
+  @Column(name = "number")
+  private String number;
+
+  /**
+   * 处理状态
+   */
+  @Column(name = "status")
+  private Integer status;
+
+  /**
+   * 登录次数
+   */
+  @Column(name = "login_count")
+  private Integer loginCount;
 
   /**
    * 创建时间
@@ -85,40 +91,11 @@ public class Equipment implements Serializable {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   private Date modifyTime;
 
-
   /**
-   * IP地址
+   * 最近登录时间
    */
-  @Column(name = "ip_address")
-  private String ipAddress;
-
-  /**
-   * 子网掩码
-   */
-  @Column(name = "subnet_mask")
-  private String subnetMask;
-
-  /**
-   * 网关
-   */
-  @Column(name = "gateway")
-  private String gateway;
-
-  /**
-   * vlan
-   */
-  @Column(name = "vlan")
-  private String vlan;
-
-  /**
-   * 存储IP地址
-   */
-  @Column(name = "storage_ip")
-  private String storageIp;
-
-  /**
-   * 位置
-   */
-  @Column(name = "position")
-  private String position;
+  @LastModifiedDate
+  @Column(name = "login_time")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+  private Date loginTime;
 }
