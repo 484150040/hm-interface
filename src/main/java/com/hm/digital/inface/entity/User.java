@@ -76,6 +76,54 @@ public class User implements Serializable {
   private Integer loginCount;
 
   /**
+   * 地址
+   */
+  @Column(name = "addr")
+  private String addr;
+
+  /**
+   * 版本
+   */
+  @Column(name = "version")
+  private Integer version;
+
+  /**
+   * 城市
+   */
+  @Column(name = "city")
+  private String city;
+
+  /**
+   * 省
+   */
+  @Column(name = "province")
+  private String province;
+
+  /**
+   * 国家
+   */
+  @Column(name = "country")
+  private String country;
+
+  /**
+   * 邮政编码
+   */
+  @Column(name = "postal_code")
+  private String postalCode;
+
+  /**
+   * 记录密码输错次数
+   */
+  @Column(name = "password_error_times")
+  private Integer passwordErrorTimes;
+
+  /**
+   * 密码输入错误锁，0为正常。1为锁定
+   */
+  @Column(name = "password_error_lock")
+  private Integer passwordErrorLock;
+
+  /**
    * 创建时间
    */
   @CreatedDate
