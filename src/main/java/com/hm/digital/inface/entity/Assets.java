@@ -34,9 +34,9 @@ public class Assets {
      *  空间名称
      */
     @Column(name = "spaceName")
-    private String space_name;
+     private String spaceName;
 
-    /**
+     /**
      *  空间id
      */
     @Column(name = "space_id")
@@ -59,7 +59,7 @@ public class Assets {
      *  创建时间
      */
     @Column(name = "createTime")
-    private Date create_time;
+    private Date createTime;
 
 
     /**

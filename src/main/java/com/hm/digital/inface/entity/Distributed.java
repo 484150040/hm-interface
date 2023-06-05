@@ -48,10 +48,10 @@ public class Distributed {
     private String spaceName;
 
     /**
-     * 精度
+     * 经度
      */
-    @Column(name = "precision")
-    private String precision;
+    @Column(name = "precisions")
+    private String precisions;
 
     /**
      * 纬度
@@ -94,6 +94,7 @@ public class Distributed {
      */
     @Column(name = "is_use")
     private String isUse;
+
 
     /**
      * 版本号
